@@ -1,0 +1,21 @@
+<script>
+document.getElementById('classifyButton').addEventListener('click', function() {
+    const emailContent = document.getElementById('emailContent').value.toLowerCase();
+    const resultDiv = document.getElementById('result');
+
+    // Simple keyword-based spam detection
+    const spamKeywords = [
+        'win', 'winner', 'free', 'prize', 'money', 'cash', 'urgent', 'act now', 'limited time', 'click here', 'discount', 'offer', 'deal', 'hot', 'sponsored', 'grab', 'exclusive', 'flash', 'sale', 'promo', 'code', 'buy'
+    ];
+
+    let isSpam = spamKeywords.some(keyword => emailContent.includes(keyword));
+
+    if (isSpam) {
+        resultDiv.textContent = 'This email is classified as SPAM.';
+        resultDiv.style.color = 'red';
+    } else {
+        resultDiv.textContent = 'This email is NOT SPAM.';
+        resultDiv.style.color = 'green';
+    }
+});
+</script>
